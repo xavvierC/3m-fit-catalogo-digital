@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Catálogo digital da 3M Fit Suplementos. Escolha seus produtos, ajuste as quantidades e envie o pedido pelo WhatsApp."
+    />
+    <meta name="theme-color" content="#121212" />
+    <title>3M Fit Suplementos | Catálogo digital</title>
+    <script>
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    </script>
+    <link rel="icon" href="assets/catalog/logo-3m-fit.png" />
+    <link rel="stylesheet" href="catalog.css?v=8" />
+    <script src="app.js?v=10" defer></script>
+  </head>
+  <body class="app-loading">
+    <a class="skip-link" href="#catalogo">Pular para o catálogo</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand-lockup" href="#top" aria-label="3M Fit Suplementos - início">
+          <img class="brand-logo" src="assets/catalog/logo-3m-fit.png" alt="3M Fit Suplementos" />
+        </a>
+
+        <nav class="main-nav" aria-label="Navegação principal">
+          <a href="#catalogo">Catálogo</a>
+          <a href="#como-funciona">Como pedir</a>
+          <a href="#contato">Contato</a>
+        </nav>
+
+        <a class="header-order-link" href="#pedido">
+          <span>Seu pedido</span>
+          <span class="header-order-count" id="header-order-count" aria-live="polite" aria-atomic="true">0</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="top" aria-busy="true" tabindex="-1">
+      <section class="hero-section">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">3M Fit Suplementos</p>
+            <h1>Seu suplemento.<br />Sua escolha.<br /><em>Seu ritmo.</em></h1>
+            <p class="hero-description">
+              Escolha seus produtos, ajuste as quantidades e envie o pedido direto para a 3M Fit no WhatsApp.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="#catalogo">Explorar catálogo</a>
+              <a class="button button-quiet" href="#como-funciona">Como funciona</a>
+            </div>
+
+            <div class="hero-proof" aria-label="Resumo do catálogo">
+              <div>
+                <strong id="hero-product-count">63</strong>
+                <span>produtos no catálogo</span>
+              </div>
+              <div>
+                <strong>1 clique</strong>
+                <span>para falar no WhatsApp</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Destaques do catálogo">
+            <div class="hero-card hero-card-main">
+              <div class="hero-card-topline">
+                <span>3M FIT</span>
+                <span>CREATINAS</span>
+              </div>
+              <img src="assets/hero/creatine-adaptogen-cutout.png" alt="Creatina Adaptogen 300g" />
+              <div class="hero-card-copy">
+                <span>Comece pela base</span>
+                <strong>Creatina para sua rotina</strong>
+              </div>
+            </div>
+            <div class="hero-card hero-card-float hero-card-float-top">
+              <span class="floating-label">destaque do catálogo</span>
+              <img src="assets/hero/whey-double-tasty-cutout.png" alt="100% Whey Double Tasty Max Titanium" />
+            </div>
+            <div class="hero-card hero-card-float hero-card-float-bottom">
+              <span class="floating-label">do seu jeito</span>
+              <img src="assets/hero/peanut-doce-de-leite-cutout.png" alt="Pasta de amendoim Dr. Peanut" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="category-strip" aria-label="Categorias do catálogo">
+        <div class="container category-strip-inner">
+          <span class="strip-label">Escolha seu foco</span>
+          <button class="category-jump" type="button" data-category-jump="Creatinas">Creatinas <span>→</span></button>
+          <button class="category-jump" type="button" data-category-jump="Vitaminas">Vitaminas <span>→</span></button>
+          <button class="category-jump" type="button" data-category-jump="Snacks e pastas">Snacks e pastas <span>→</span></button>
+          <button class="category-jump" type="button" data-category-jump="Whey e proteínas">Whey e proteínas <span>→</span></button>
+        </div>
+      </section>
+
+      <section class="how-section" id="como-funciona" tabindex="-1">
+        <div class="container">
+          <div class="section-intro section-intro-split">
+            <div>
+              <p class="eyebrow eyebrow-dark">Como pedir</p>
+              <h2>Peça em <em>três passos.</em></h2>
+            </div>
+            <p>
+              Escolha seus produtos, revise o pedido e envie pelo WhatsApp.
+            </p>
+          </div>
+
+          <div class="steps-grid">
+            <article class="step-card">
+              <span class="step-number">01</span>
+              <div class="step-icon">⌕</div>
+              <h3>Escolha</h3>
+              <p>Encontre seus produtos no catálogo.</p>
+            </article>
+            <article class="step-card step-card-highlight">
+              <span class="step-number">02</span>
+              <div class="step-icon">＋</div>
+              <h3>Ajuste</h3>
+              <p>Defina as quantidades do seu pedido.</p>
+            </article>
+            <article class="step-card">
+              <span class="step-number">03</span>
+              <div class="step-icon">↗</div>
+              <h3>Envie</h3>
+              <p>Receba a confirmação pelo WhatsApp.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="catalog-section" id="catalogo" tabindex="-1">
+        <div class="container">
+          <div class="section-intro catalog-intro">
+            <div>
+              <p class="eyebrow eyebrow-dark">Catálogo completo</p>
+              <h2>Encontre seu<br /><em>próximo suplemento.</em></h2>
+            </div>
+            <p class="catalog-note">Selecione os produtos e monte seu pedido.<br />Disponibilidade confirmada no atendimento.</p>
+          </div>
+
+          <div class="catalog-toolbar">
+            <div class="search-wrap">
+              <label class="sr-only" for="product-search">Buscar produto</label>
+              <span class="search-icon">⌕</span>
+              <input id="product-search" type="search" placeholder="Buscar por produto, marca ou sabor" autocomplete="off" />
+            </div>
+            <div class="results-count" aria-live="polite"><strong id="visible-count">63</strong> itens</div>
+          </div>
+
+          <div class="filter-row" role="group" aria-label="Filtrar por categoria">
+            <button class="filter-button is-active" type="button" data-category="Todos">Todos</button>
+            <button class="filter-button" type="button" data-category="Creatinas">Creatinas</button>
+            <button class="filter-button" type="button" data-category="Vitaminas">Vitaminas</button>
+            <button class="filter-button" type="button" data-category="Snacks e pastas">Snacks e pastas</button>
+            <button class="filter-button" type="button" data-category="Whey e proteínas">Whey e proteínas</button>
+          </div>
+
+          <div class="catalog-layout">
+            <div class="products-column">
+              <div class="catalog-loading" id="catalog-loading" role="status" aria-live="polite">
+                <span class="loading-spinner" aria-hidden="true"></span>
+                <span>Carregando catálogo…</span>
+              </div>
+              <div class="product-grid" id="catalog-grid"></div>
+              <div class="empty-state" id="empty-state" hidden>
+                <span>⌕</span>
+                <h3>Nenhum produto encontrado</h3>
+                <p>Tente outro termo ou volte para “Todos”.</p>
+              </div>
+            </div>
+
+            <aside class="order-panel" id="pedido" aria-labelledby="order-title" tabindex="-1">
+              <div class="order-panel-header">
+                <div>
+                  <p class="eyebrow eyebrow-dark">Seu pedido</p>
+                  <h2 id="order-title">Tudo <em>pronto?</em></h2>
+                </div>
+                <span class="order-badge" id="order-badge" aria-live="polite" aria-atomic="true">0</span>
+              </div>
+
+              <div class="order-items" id="order-items">
+                <div class="order-loading" id="order-loading" role="status" aria-live="polite">
+                  Preparando seu pedido…
+                </div>
+                <div class="order-empty" id="order-empty">
+                  <div class="order-empty-icon">＋</div>
+                  <strong>Seu pedido está vazio</strong>
+                  <span>Adicione produtos para começar.</span>
+                </div>
+              </div>
+
+              <div class="order-total">
+                <span>Total estimado</span>
+                <strong id="order-total">R$ 0,00</strong>
+              </div>
+
+              <button class="button button-whatsapp" id="send-order" type="button">
+                Enviar pedido no WhatsApp <span>↗</span>
+              </button>
+              <button class="clear-order" id="clear-order" type="button" disabled>Limpar pedido</button>
+              <p class="order-footnote">A equipe confirma disponibilidade, entrega e forma de pagamento pelo WhatsApp.</p>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contato" tabindex="-1">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand-lockup brand-lockup-footer" href="#top" aria-label="Voltar ao início">
+            <img class="brand-logo" src="assets/catalog/logo-3m-fit.png" alt="3M Fit Suplementos" />
+          </a>
+          <p>Catálogo digital de suplementos, proteínas e snacks para sua rotina.</p>
+        </div>
+        <div class="footer-contact">
+          <span class="footer-label">Fale com a gente</span>
+          <a href="https://wa.me/5511991662195" target="_blank" rel="noreferrer">(11) 99166-2195</a>
+          <a href="https://wa.me/5511964431910" target="_blank" rel="noreferrer">(11) 96443-1910</a>
+        </div>
+        <div class="footer-contact">
+          <span class="footer-label">Instagram</span>
+          <a href="https://instagram.com/3mfitsuplementos.loja2" target="_blank" rel="noreferrer">@3mfitsuplementos.loja2</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© 3M Fit Suplementos</span>
+        <span>Preços sujeitos à confirmação no atendimento.</span>
+      </div>
+    </footer>
+
+    <div class="mobile-order-bar" id="mobile-order-bar">
+      <div>
+        <span id="mobile-order-count">0 itens</span>
+        <strong id="mobile-order-total">R$ 0,00</strong>
+      </div>
+      <a href="#pedido">Ver pedido <span>↑</span></a>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
