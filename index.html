@@ -10,11 +10,12 @@
     <meta name="theme-color" content="#121212" />
     <title>3M Fit Suplementos | Catálogo digital</title>
     <script>
+      document.documentElement.classList.add("js");
       if ("scrollRestoration" in history) history.scrollRestoration = "manual";
     </script>
     <link rel="icon" href="assets/catalog/logo-3m-fit.png" />
-    <link rel="stylesheet" href="catalog.css?v=9" />
-    <script src="app.js?v=10" defer></script>
+    <link rel="stylesheet" href="catalog.css?v=11" />
+    <script src="app.js?v=12" defer></script>
   </head>
   <body class="app-loading">
     <a class="skip-link" href="#catalogo">Pular para o catálogo</a>
@@ -52,16 +53,6 @@
               <a class="button button-quiet" href="#como-funciona">Como funciona</a>
             </div>
 
-            <div class="hero-proof" aria-label="Resumo do catálogo">
-              <div>
-                <strong id="hero-product-count">63</strong>
-                <span>produtos no catálogo</span>
-              </div>
-              <div>
-                <strong>1 clique</strong>
-                <span>para falar no WhatsApp</span>
-              </div>
-            </div>
           </div>
 
           <div class="hero-visual" aria-label="Produto em destaque">
@@ -79,7 +70,7 @@
         </div>
       </section>
 
-      <section class="category-strip" aria-label="Categorias do catálogo">
+      <section class="category-strip" aria-label="Categorias do catálogo" data-reveal>
         <div class="container category-strip-inner">
           <span class="strip-label">Escolha seu foco</span>
           <button class="category-jump" type="button" data-category-jump="Creatinas">Creatinas <span>→</span></button>
@@ -89,7 +80,7 @@
         </div>
       </section>
 
-      <section class="how-section" id="como-funciona" tabindex="-1">
+      <section class="how-section" id="como-funciona" tabindex="-1" data-reveal>
         <div class="container">
           <div class="section-intro section-intro-split">
             <div>
@@ -102,19 +93,19 @@
           </div>
 
           <div class="steps-grid">
-            <article class="step-card">
+            <article class="step-card" data-reveal data-reveal-delay="40">
               <span class="step-number">01</span>
               <div class="step-icon">⌕</div>
               <h3>Escolha</h3>
               <p>Encontre seus produtos no catálogo.</p>
             </article>
-            <article class="step-card step-card-highlight">
+            <article class="step-card step-card-highlight" data-reveal data-reveal-delay="100">
               <span class="step-number">02</span>
               <div class="step-icon">＋</div>
               <h3>Ajuste</h3>
               <p>Defina as quantidades do seu pedido.</p>
             </article>
-            <article class="step-card">
+            <article class="step-card" data-reveal data-reveal-delay="160">
               <span class="step-number">03</span>
               <div class="step-icon">↗</div>
               <h3>Envie</h3>
@@ -124,7 +115,7 @@
         </div>
       </section>
 
-      <section class="catalog-section" id="catalogo" tabindex="-1">
+      <section class="catalog-section" id="catalogo" tabindex="-1" data-reveal>
         <div class="container">
           <div class="section-intro catalog-intro">
             <div>
@@ -201,7 +192,7 @@
       </section>
     </main>
 
-    <footer class="site-footer" id="contato" tabindex="-1">
+    <footer class="site-footer" id="contato" tabindex="-1" data-reveal>
       <div class="container footer-grid">
         <div>
           <a class="brand-lockup brand-lockup-footer" href="#top" aria-label="Voltar ao início">

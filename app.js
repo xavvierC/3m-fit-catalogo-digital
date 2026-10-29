@@ -91,7 +91,6 @@ const orderItems = document.querySelector("#order-items");
 const orderTotal = document.querySelector("#order-total");
 const orderBadge = document.querySelector("#order-badge");
 const headerOrderCount = document.querySelector("#header-order-count");
-const heroProductCount = document.querySelector("#hero-product-count");
 const sendOrderButton = document.querySelector("#send-order");
 const clearOrderButton = document.querySelector("#clear-order");
 const mobileOrderCount = document.querySelector("#mobile-order-count");
@@ -146,6 +145,7 @@ function getVisibleProducts() {
 function productCardTemplate(product) {
   const quantity = getQuantity(product.id);
   const selectedClass = quantity > 0 ? " is-selected" : "";
+  const imageClass = product.id === "best-whey-toddy" ? " product-image-best-whey-toddy" : "";
   const controls = quantity > 0
     ? `<div class="quantity-control" role="group" aria-label="Quantidade de ${escapeHtml(product.name)}">
          <button type="button" data-action="decrement" data-id="${product.id}" aria-label="Diminuir quantidade">−</button>
@@ -156,7 +156,7 @@ function productCardTemplate(product) {
 
   return `<article class="product-card${selectedClass}" data-product-id="${product.id}">
     <div class="product-media">
-    <img src="${product.image}" alt="${escapeHtml(product.name)} ${escapeHtml(product.variant)}" loading="lazy" decoding="async" width="300" height="260" />
+    <img class="product-image${imageClass}" src="${product.image}" alt="${escapeHtml(product.name)} ${escapeHtml(product.variant)}" loading="lazy" decoding="async" width="300" height="260" />
     </div>
     <div class="product-content">
       <div class="product-meta">
@@ -180,6 +180,33 @@ function renderProducts() {
   visibleCount.textContent = visibleProducts.length;
   catalogGrid.innerHTML = visibleProducts.map(productCardTemplate).join("");
   emptyState.hidden = visibleProducts.length > 0;
+}
+
+function setupRevealAnimations() {
+  const revealItems = [...document.querySelectorAll("[data-reveal]")];
+  if (!revealItems.length) return;
+
+  const show = (element) => element.classList.add("is-visible");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (reducedMotion || !("IntersectionObserver" in window)) {
+    revealItems.forEach(show);
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, currentObserver) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      show(entry.target);
+      currentObserver.unobserve(entry.target);
+    });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+
+  revealItems.forEach((element) => {
+    const delay = Number(element.dataset.revealDelay);
+    if (Number.isFinite(delay)) element.style.setProperty("--reveal-delay", `${Math.min(delay, 240)}ms`);
+    observer.observe(element);
+  });
 }
 
 function selectedProducts() {
@@ -280,6 +307,10 @@ function restoreHashTarget() {
   document.getElementById(targetId)?.scrollIntoView({ behavior: "auto", block: "start" });
 }
 
+function resetScrollOnReload() {
+  if (!window.location.hash) window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+}
+
 function scheduleHashRestore() {
   window.setTimeout(restoreHashTarget, 120);
   window.setTimeout(restoreHashTarget, 520);
@@ -288,6 +319,7 @@ function scheduleHashRestore() {
 window.addEventListener("hashchange", scheduleHashRestore);
 window.addEventListener("pageshow", scheduleHashRestore);
 window.addEventListener("load", scheduleHashRestore, { once: true });
+window.addEventListener("pageshow", resetScrollOnReload, { once: true });
 
 document.querySelectorAll("[data-category]").forEach((button) => {
   button.setAttribute("aria-pressed", String(button.dataset.category === activeCategory));
@@ -340,9 +372,11 @@ clearOrderButton.addEventListener("click", () => {
 
 sendOrderButton.addEventListener("click", sendOrderToWhatsApp);
 
-heroProductCount.textContent = products.length;
 renderProducts();
 renderOrder();
+setupRevealAnimations();
 document.querySelector("#top").setAttribute("aria-busy", "false");
 document.body.classList.remove("app-loading");
+resetScrollOnReload();
+window.setTimeout(resetScrollOnReload, 80);
 scheduleHashRestore();
